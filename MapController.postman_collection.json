@@ -1,0 +1,346 @@
+{
+	"info": {
+		"_postman_id": "f9b16fda-6aab-488a-841d-674a84cf48b4",
+		"name": "MapController",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CheckWithValidInput",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5a69a9ad-1ccc-4c17-968a-96a552fa3e26",
+						"exec": [
+							"pm.test(\"Status code name has string:OK\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"mapQueryString\": \"#######\\n##O##O#\\n#OO#OO#\\n###O#O#\\n#OOOO##\\nO#O#OO#\\nOO#O###\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44313/api/v1/LakeArea",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44313",
+					"path": [
+						"api",
+						"v1",
+						"LakeArea"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CheckWithNullAsInput",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b6ccf9e8-3275-46df-87c4-4b842c4ebbf8",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "229ba217-1103-4b81-b744-e5208d8ee5b9",
+						"exec": [
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"mapQueryString\": null\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44313/api/v1/LakeArea",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44313",
+					"path": [
+						"api",
+						"v1",
+						"LakeArea"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CheckWithEmptyInput",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "784e0d47-063f-47af-8b3a-686b8ed0eee7",
+						"exec": [
+							"\r",
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"mapQueryString\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44313/api/v1/LakeArea",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44313",
+					"path": [
+						"api",
+						"v1",
+						"LakeArea"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CheckWithWrongInput",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "09a7d137-e386-495c-99fe-5e0ca2fb9399",
+						"exec": [
+							"pm.test(\"Status code name has string:OK\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"mapQueryString\": \"0ghsks\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44313/api/v1/LakeArea",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44313",
+					"path": [
+						"api",
+						"v1",
+						"LakeArea"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CheckWithOnlyLandInput",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6f668947-1f1e-4ece-b216-e66e881f058f",
+						"exec": [
+							"pm.test(\"Status code name has string:OK\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Body matches string:No Appropriate lake data found in the given input\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"No Appropriate lake data found in the given input\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"mapQueryString\": \"######\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44313/api/v1/LakeArea",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44313",
+					"path": [
+						"api",
+						"v1",
+						"LakeArea"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CheckWithInvalidInputContaningLakeAndLandValue",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1d69a88a-f5fd-43eb-ae28-a5cb1df9a070",
+						"exec": [
+							"pm.test(\"Status code name has string:OK\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Body matches string: Lake data found\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Lake data found\");\r",
+							"});\r",
+							"pm.test(\"Body should contain: No Appropriate lake data found in the given input\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"No Appropriate lake data found in the given input\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"mapQueryString\": \"asdfgg#O\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44313/api/v1/LakeArea",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44313",
+					"path": [
+						"api",
+						"v1",
+						"LakeArea"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
